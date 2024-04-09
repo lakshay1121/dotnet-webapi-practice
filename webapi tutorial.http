@@ -1,0 +1,6 @@
+@webapi_tutorial_HostAddress = http://localhost:5224
+
+GET {{webapi_tutorial_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
