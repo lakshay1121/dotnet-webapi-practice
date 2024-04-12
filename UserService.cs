@@ -14,9 +14,19 @@ namespace webapi_tutorial
             _repository = repository;
         }
 
-        public IEnumerable<User> getUsers()
+        public IEnumerable<User> GetUsers()
         {
-            return _repository.getUsers();
+            return _repository.GetUsers();
+        }
+
+        public void AddUser(User user)
+        {
+            _repository.AddUser(user);
+        }
+
+        public bool UpdateUser(string email, User user)
+        {
+            return _repository.UpdateUser(email, user);
         }
 
     }

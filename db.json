@@ -1,0 +1,18 @@
+{
+  "Users": [
+    {
+      "id": "1",
+      "name": "Lakshay",
+      "email": "lakshay@gmail.com",
+      "mobile": "222849284",
+      "age": "21"
+    },
+    {
+      "id": "2",
+      "name": "rohit",
+      "email": "rohit@gmail.com",
+      "mobile": "49404944404",
+      "age": "22"
+    }
+  ]
+}

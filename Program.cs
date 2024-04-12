@@ -1,6 +1,10 @@
-using webapi_tutorial.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using webapi_tutorial;
 using webapi_tutorial.Repositories;
+using webapi_tutorial.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +26,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+// Enable CORS
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin();
+    options.AllowAnyMethod();
+    options.AllowAnyHeader();
+});
 
 app.UseAuthorization();
 

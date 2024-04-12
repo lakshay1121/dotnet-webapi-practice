@@ -4,6 +4,8 @@ namespace webapi_tutorial.Services
 {
     public interface IUserService
     {
-        IEnumerable<User> getUsers();
+        IEnumerable<User> GetUsers();
+        void AddUser(User user);
+        bool UpdateUser(string email, User user);
     }
 }
