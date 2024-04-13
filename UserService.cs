@@ -24,10 +24,16 @@ namespace webapi_tutorial
             _repository.AddUser(user);
         }
 
-        public bool UpdateUser(string email, User user)
+        public bool UpdateUser(string id, User user)
         {
-            return _repository.UpdateUser(email, user);
+            return _repository.UpdateUser(id, user);
         }
+
+        public bool DeleteUserById(string id)
+        {
+            return _repository.DeleteUserById(id);
+        }
+        public User GetUserById(string id) { return _repository.GetUserById(id);}
 
     }
 }

@@ -30,9 +30,9 @@ namespace webapi_tutorial.Repositories
                 throw new ArgumentNullException(nameof(user), "User object cannot be null.");
             }
         }
-        public bool UpdateUser(string email, User updatedUser)
+        public bool UpdateUser(string id, User updatedUser)
         {
-            var existingUser = users.Find(u => u.email == email);
+            var existingUser = users.Find(u => u.id == id);
             if (existingUser != null)
             {
                 existingUser.name = updatedUser.name;
@@ -41,6 +41,22 @@ namespace webapi_tutorial.Repositories
                 return true;
             }
             return false;
+        }
+
+        public bool DeleteUserById(string id)
+        {
+            var userToRemove = users.FirstOrDefault(u => u.id == id);
+            if (userToRemove != null)
+            {
+                users.Remove(userToRemove);
+                return true;
+            }
+            return false;
+        }
+
+        public User GetUserById(string id)
+        {
+            return users.FirstOrDefault(u => u.id == id);
         }
     }
 }

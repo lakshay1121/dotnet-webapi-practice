@@ -29,13 +29,41 @@ namespace webapi_tutorial.Controllers
             return CreatedAtAction(nameof(GetUsers), new { id = user.email }, user);
         }
 
-        [HttpPut("{email}")]
-        public IActionResult UpdateUser(string email, User user)
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(string id, User user)
         {
-            var result = _userService.UpdateUser(email, user);
+            var result = _userService.UpdateUser(id, user);
             if (result)
             {
                 return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser(string id)
+        {
+            var result = _userService.DeleteUserById(id);
+            if (result)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetUserById(string id)
+        {
+            var user = _userService.GetUserById(id);
+            if (user != null)
+            {
+                return Ok(user);
             }
             else
             {
